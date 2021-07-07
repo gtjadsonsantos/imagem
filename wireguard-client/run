@@ -1,0 +1,14 @@
+#!/bin/bash 
+
+interfaces=`find /etc/wireguard -type f`
+
+start_interfaces() {
+    for interface in $interfaces; do
+        echo "$(date): Starting Wireguard $interface"
+        wg-quick up $interface
+    done
+}
+
+start_interfaces
+
+sleep infinity
